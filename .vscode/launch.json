@@ -1,0 +1,63 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "coreclr",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/MyWebAppAzure",
+      "program": "${workspaceFolder}/MyWebAppAzure/bin/Debug/net9.0/MyWebAppAzure.dll",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_CLI_UI_LANGUAGE": "en-US",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "logging": {
+        "moduleLoad": false
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/Views"
+      },
+      "name": "MyWebAppAzure [http]",
+      "preLaunchTask": "MyWebAppAzure",
+      "args": [],
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+https?://\\S",
+        "uriFormat": "http://localhost:5081"
+      }
+    },
+    {
+      "type": "coreclr",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/MyWebAppAzure",
+      "program": "${workspaceFolder}/MyWebAppAzure/bin/Debug/net9.0/MyWebAppAzure.dll",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_CLI_UI_LANGUAGE": "en-US",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "logging": {
+        "moduleLoad": false
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/Views"
+      },
+      "name": "MyWebAppAzure [https]",
+      "preLaunchTask": "MyWebAppAzure",
+      "args": [],
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+https?://\\S",
+        "uriFormat": "https://localhost:7151"
+      }
+    },
+    {
+      "name": "Attach to a .NET Process",
+      "type": "coreclr",
+      "request": "attach",
+      "logging": {
+        "moduleLoad": false
+      }
+    }
+  ]
+}
