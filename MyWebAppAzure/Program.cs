@@ -1,26 +1,23 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Aggiungi servizi per Razor Pages
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configura la pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();  // IMPORTANTE: per file CSS/JS/immagini
 app.UseRouting();
-
 app.UseAuthorization();
 
-app.MapStaticAssets();
-app.MapRazorPages()
-   .WithStaticAssets();
+// Mappa le Razor Pages
+app.MapRazorPages();
 
 app.Run();
