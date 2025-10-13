@@ -10,10 +10,16 @@ builder.Services.AddRazorPages();
 
 
 // builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connection));
-
-// Aggiungi questo
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Azconn")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null
+        )
+    )
+);
 
 var app = builder.Build();
 

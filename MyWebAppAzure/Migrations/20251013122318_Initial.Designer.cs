@@ -12,7 +12,7 @@ using MyWebAppAzure.Data;
 namespace MyWebAppAzure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251013082519_Initial")]
+    [Migration("20251013122318_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
