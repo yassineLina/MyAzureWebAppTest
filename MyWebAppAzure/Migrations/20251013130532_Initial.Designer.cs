@@ -12,7 +12,7 @@ using MyWebAppAzure.Data;
 namespace MyWebAppAzure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251013122318_Initial")]
+    [Migration("20251013130532_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -37,11 +37,9 @@ namespace MyWebAppAzure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastNAme")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

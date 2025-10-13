@@ -17,8 +17,8 @@ namespace MyWebAppAzure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastNAme = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastNAme = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBridth = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

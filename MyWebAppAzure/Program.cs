@@ -8,18 +8,12 @@ builder.Services.AddRazorPages();
 
 // var connection = builder.Configuration.GetConnectionString("Azconn");
 
+// Load connection string from appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// builder.Services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connection));
+// Register DbContext with the connection string
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlServerOptions => sqlServerOptions.EnableRetryOnFailure(
-            maxRetryCount: 5,
-            maxRetryDelay: TimeSpan.FromSeconds(30),
-            errorNumbersToAdd: null
-        )
-    )
-);
+    options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
